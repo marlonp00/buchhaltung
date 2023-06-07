@@ -1,0 +1,256 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;300;400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --main-color-light: #F8F8F6;
+  --main-color-dark: #2C2B2F;
+  --main-color-grey: #7b7783;
+  --color-brown: #B26248;
+  --color-danger: #b13838;
+  --color-green: #72d55c;
+  --color-orange: #EC9834;
+  ;
+}
+
+body {
+  font-family: 'Sora', sans-serif;
+  background: var(--main-color-light);
+
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.wrapper {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-area: "one";
+  padding: 2em;
+  background: var(--main-color-dark);
+  border-radius: 1em;
+  color: var(--main-color-light);
+  width: auto;
+  animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-duration: 0.55s;
+  transition: 0.25s all ease-in-out;
+}
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.card-login-body {
+  display: block;
+  /* margin: 2em; */
+  width: 25em;
+  text-align: center;
+  transition: 0.25s all ease-in-out;
+}
+
+.card form {
+  margin-top: 2em;
+  width: 100%;
+}
+
+.card input { 
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.card-text {
+  line-height: 2em;
+}
+.card-status {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+.card-finished {
+  background: var(--color-green);
+  transition: all 500ms ease;
+}
+.card button { 
+  width: 100%;
+  margin: 1em 0;
+}
+
+.btn {
+  margin: 1em;
+  height: 30px;
+  width: 120px;
+  border-radius: 5px;
+  border-style: none;
+}
+
+.btn-primary {
+  background-color: var(--main-color-dark);
+  color:#F8F8F6;
+}
+.btn-primary-light {
+  background-color: var(--main-color-light);
+  color: var(--main-color-dark);
+}
+.btn-secondary {
+  background-color: var(--main-color-grey);
+  color:#F8F8F6;
+}
+.btn-danger {
+  background-color: var(--color-danger);
+  color:#F8F8F6;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 2em;
+  background: var(--main-color-dark);
+  
+}
+header h2 {
+  color: var(--main-color-light); 
+}
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+}
+.row {
+  flex: 1;
+  height: auto;
+  padding: 0 2em;
+}
+.col-12 {
+  width: 100%;
+  flex: 1;
+  height: auto;
+}
+.table {
+  border-bottom: #2C2B2F solid .02em; 
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 0;
+}
+.table-danger {
+  border: none;
+  background-color: var(--color-danger);
+  color: white;
+  transition: all 500ms ease;
+}
+.table-finished {
+  border: none;
+  background-color: var(--color-green);
+  color: white;
+  transition: all 500ms ease;
+  border-radius: 1em;
+}
+
+
+.clients-title {
+  margin: 2em 0 0;
+  justify-content: center;
+  text-align: center;
+  padding: 0 0 0.5em;
+}
+
+.clients-infobox {
+  margin: 1em 0;
+}
+
+.date-filter {
+  margin-left: 1em;
+  padding: 0.5em 2em;
+  height: 3em;
+  width: 15em;
+}
+
+.status-filter {
+  margin-left: 1em;
+  padding: 0.5em 2em;
+  height: 3em;
+  width: 15em;
+}
+.box-filter {
+  margin-top: 1em;
+}
+
+/* checkbox-rect */
+.checkbox-rect input[type="checkbox"] {
+  display: none;
+}
+.checkbox-rect input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+}
+.checkbox-rect input[type="checkbox"]:hover + label:hover {
+  color: var(--main-color-grey);
+}
+.checkbox-rect input[type="checkbox"]:hover + label:before {
+  background: var(--main-color-grey);
+  box-shadow: inset 0px 0px 0px 2px #f7f2f2;
+}
+.checkbox-rect input[type="checkbox"] + label:last-child {
+  margin-bottom: 0;
+}
+.checkbox-rect input[type="checkbox"] + label:before {
+  content: "";
+  display: block;
+  width: 1.4em;
+  height: 1.4em;
+  border: 1px solid #343a3f;
+  border-radius: 0.2em;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  -webkit-transition: all 0.2s, background 0.2s ease-in-out;
+  transition: all 0.2s, background 0.2s ease-in-out;
+  background: #f3f3f3;
+}
+.checkbox-rect input[type="checkbox"]:checked + label:before {
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 0.2em;
+  border: 2px solid #fff;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background: var(--main-color-dark);
+  box-shadow: 0 0 0 1px #000;
+}
+/* checkbox-rect end */
+
+@media (max-width: 800px) {
+  .btn {
+    margin: .5em 0;
+    height: 30px;
+    width: 100%;
+  
+}
+}
+
+
