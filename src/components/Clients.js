@@ -59,6 +59,7 @@ function Clients() {
 
   const handleDetails = (id) => {
     showDetails(id);
+    
   };
 
   return (
