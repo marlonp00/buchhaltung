@@ -22,10 +22,7 @@ export const ClientProvider = ({children}) => {
 
     useEffect(() => {
       getClients();
-      if(clientEdit.edit === true) {
-        console.log(clientEdit);
-        navigate("/details");
-       }
+      
     }, [selectedDate, selectedStatus, clientEdit]);
   
     const getClients = async () => {
