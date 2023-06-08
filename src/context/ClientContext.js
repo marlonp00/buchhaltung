@@ -26,7 +26,6 @@ export const ClientProvider = ({children}) => {
     }, [selectedDate, selectedStatus]);
   
     const getClients = async () => {
-      console.log("get clients")
       let url = `${apiUrl}/clients`;
       if (selectedDate) {
         url += `?date=${selectedDate}`;
@@ -37,6 +36,7 @@ export const ClientProvider = ({children}) => {
       const response = await fetch(url);
       const data = await response.json();
       console.log(data); // log the response data to the console
+      console.log("get clients");
       setClients(data);
     };
 
