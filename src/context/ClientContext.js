@@ -26,6 +26,7 @@ export const ClientProvider = ({children}) => {
     }, [selectedDate, selectedStatus]);
   
     const getClients = async () => {
+      console.log("get clients")
       let url = `${apiUrl}/clients`;
       if (selectedDate) {
         url += `?date=${selectedDate}`;
