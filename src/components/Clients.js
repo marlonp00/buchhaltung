@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import ClientContext from "../context/ClientContext";
 
 function Clients() {
@@ -8,21 +7,17 @@ function Clients() {
   const [selectedStatus, setSelectedStatus] = useState(null);
   const [sortByDate, setSortByDate] = useState(false); // New state for sorting
 
-  const { clients, username, showDetails, deleteClient, showClientStatus, clientEdit } = useContext(ClientContext);
+  const { clients, username, showDetails, deleteClient, showClientStatus } = useContext(ClientContext);
 
   const [items, setItems] = useState(null);
 
-  const navigate = useNavigate();
-
-
   useEffect(() => {
-    console.log("Trigger Clients");
     if (sortByDate) {
       setItems(sortClientsByDate(clients));
     } else {
       setItems(clients);
     }
-  }, [selectedDate, deleteClient, clients, sortByDate]);
+  }, [selectedDate, selectedStatus, deleteClient, clients, sortByDate]);
 
   // Filter Client
   const filterClients = (client) => {
@@ -64,11 +59,6 @@ function Clients() {
 
   const handleDetails = (id) => {
     showDetails(id);
-    if(clientEdit.edit === true) {
-      console.log(clientEdit);
-      navigate("/details");
-     }
-    
   };
 
   return (
@@ -119,9 +109,11 @@ function Clients() {
                   <br />
                 </div>
 
+                <Link to="/details">
                   <button className="btn btn-primary" onClick={() => handleDetails(client.id)}>
                     Details
                   </button>
+                </Link>
 
                {username === "Sonja" && <button className="btn btn-danger" onClick={() => { if(window.confirm('Bestellung löschen?')){ deleteClient(client.id)}} }>Löschen</button>} 
               </li>

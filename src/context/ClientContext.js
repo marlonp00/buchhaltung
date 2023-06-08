@@ -22,8 +22,11 @@ export const ClientProvider = ({children}) => {
 
     useEffect(() => {
       getClients();
-      
-    }, [selectedDate, selectedStatus]);
+      if(clientEdit.edit === true) {
+        console.log(clientEdit);
+        navigate("/details");
+       }
+    }, [selectedDate, selectedStatus, clientEdit]);
   
     const getClients = async () => {
       let url = `${apiUrl}/clients`;
@@ -36,7 +39,6 @@ export const ClientProvider = ({children}) => {
       const response = await fetch(url);
       const data = await response.json();
       console.log(data); // log the response data to the console
-      console.log("get clients");
       setClients(data);
     };
 
