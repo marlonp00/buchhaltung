@@ -1,8 +1,11 @@
 import { Navigate } from "react-router-dom";
+import React, { useEffect } from "react";
 import Clients from './Clients'
 
 function Dashboard({handleLogout, user}) {
+useEffect(() => {
 
+}, []);
   
   return (
    <>

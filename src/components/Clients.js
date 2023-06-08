@@ -17,7 +17,7 @@ function Clients() {
     } else {
       setItems(clients);
     }
-  }, [sortByDate]);
+  }, [selectedDate, selectedStatus, deleteClient, clients, sortByDate]);
 
   // Filter Client
   const filterClients = (client) => {
@@ -59,7 +59,7 @@ function Clients() {
 
   const handleDetails = (id) => {
     showDetails(id);
-
+    
   };
 
   return (
