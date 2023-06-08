@@ -23,7 +23,7 @@ export const ClientProvider = ({children}) => {
     useEffect(() => {
       getClients();
       
-    }, [selectedDate, selectedStatus, clientEdit]);
+    }, [selectedDate, selectedStatus]);
   
     const getClients = async () => {
       let url = `${apiUrl}/clients`;
