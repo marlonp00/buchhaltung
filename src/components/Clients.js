@@ -16,6 +16,7 @@ function Clients() {
 
 
   useEffect(() => {
+    console.log("Trigger Clients");
     if (sortByDate) {
       setItems(sortClientsByDate(clients));
     } else {

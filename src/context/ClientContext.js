@@ -23,7 +23,7 @@ export const ClientProvider = ({children}) => {
     useEffect(() => {
       getClients();
       
-    }, [selectedDate, selectedStatus]);
+    }, [selectedDate, selectedStatus, clientEdit]);
   
     const getClients = async () => {
       let url = `${apiUrl}/clients`;
@@ -35,7 +35,7 @@ export const ClientProvider = ({children}) => {
       }
       const response = await fetch(url);
       const data = await response.json();
-      console.log("So:", data); // log the response data to the console
+      console.log(data); // log the response data to the console
       setClients(data);
     };
 
