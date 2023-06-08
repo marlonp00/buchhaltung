@@ -17,7 +17,6 @@ function ClientDetails() {
 
 
 
-
   useEffect(() => {
     setClient(clientEdit);
 
