@@ -22,7 +22,7 @@ function Clients() {
     } else {
       setItems(clients);
     }
-  }, [selectedDate, selectedStatus, deleteClient, clients, sortByDate]);
+  }, [selectedDate, deleteClient, clients, sortByDate]);
 
   // Filter Client
   const filterClients = (client) => {
