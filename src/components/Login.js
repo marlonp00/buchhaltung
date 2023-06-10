@@ -2,12 +2,15 @@ import React, { useContext } from "react";
 import { toast } from "react-toastify";
 import {login} from '../auth';
 import ClientContext from "../context/ClientContext";
+import { useNavigate } from "react-router-dom";
 
 
-const Login = ({ onLogin, error }) => {
 
+const Login = ({ error }) => {
 
-  const { username, password, handleUserName, handlePassword} = useContext(ClientContext);
+  const { username, password, handleLogin, handleUserName, handlePassword} = useContext(ClientContext);
+  const navigate = useNavigate();
+
 
   
   const handleSubmit = async (event) => {
@@ -15,14 +18,16 @@ const Login = ({ onLogin, error }) => {
     try {
       const isSuccess = await login(username, password);
       if (isSuccess) {
-        await onLogin({ username, password });
+        await handleLogin({ username, password });
         toast.success("erfolgreich eingeloggt");
+        navigate("/dashboard")
 
       } else {
         throw new Error("Incorrect username or password");
       }
     } catch (error) {
       toast.error("Falscher Benutzername oder Passwort");
+      console.log(error);
     }
   };
 

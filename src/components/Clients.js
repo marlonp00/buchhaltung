@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import ClientContext from "../context/ClientContext";
+import { Link } from "react-router-dom";
+
 
 function Clients() {
+ 
+
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState(null);
   const [sortByDate, setSortByDate] = useState(false); // New state for sorting
@@ -12,12 +15,13 @@ function Clients() {
   const [items, setItems] = useState(null);
 
   useEffect(() => {
+    console.log("Rerender Clients");
     if (sortByDate) {
       setItems(sortClientsByDate(clients));
     } else {
       setItems(clients);
     }
-  }, [selectedDate, selectedStatus, deleteClient, clients, sortByDate]);
+  }, [clients, sortByDate]);
 
   // Filter Client
   const filterClients = (client) => {
@@ -59,7 +63,7 @@ function Clients() {
 
   const handleDetails = (id) => {
     showDetails(id);
-    
+
   };
 
   return (
@@ -110,11 +114,9 @@ function Clients() {
                   <br />
                 </div>
 
-                <Link to="/details">
-                  <button className="btn btn-primary" onClick={() => handleDetails(client.id)}>
+                <Link to="/details"> <button className="btn btn-primary" onClick={() => handleDetails(client.id)}>
                     Details
-                  </button>
-                </Link>
+                  </button> </Link>
 
                {username === "Sonja" && <button className="btn btn-danger" onClick={() => { if(window.confirm('Bestellung löschen?')){ deleteClient(client.id)}} }>Löschen</button>} 
               </li>

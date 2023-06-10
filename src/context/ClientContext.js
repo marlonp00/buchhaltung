@@ -1,31 +1,34 @@
 import { createContext, useState, useEffect } from 'react'
-import { useNavigate } from "react-router-dom";
 
 
 const ClientContext = createContext();
 
 export const ClientProvider = ({children}) => {
 
-  const navigate = useNavigate();
 
-    const [clients, setClients] = useState([]);
+    const [clients, setClients] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedStatus, setSelectedStatus] = useState(null);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [user, setUser] = useState(null);
+
 
     const [clientEdit, setClientEdit] = useState({
         item: {},
         edit: false
     });
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = 'https://misfits-backend-marlon.onrender.com';
 
     useEffect(() => {
-      getClients();
+      if(clients === null) {
+        getClients();
+        console.log("From Context");
+      }
       if(clientEdit.edit === true) {
-        console.log(clientEdit);
-        navigate("/details");
-       }
+        console.log("Trigger navigate")
+      }
+
     }, [selectedDate, selectedStatus, clientEdit]);
   
     const getClients = async () => {
@@ -42,13 +45,23 @@ export const ClientProvider = ({children}) => {
       setClients(data);
     };
 
-    const handleUserName = (user) => {
-      setUsername(user);
+    const handleUserName = (username) => {
+      setUsername(username);
     } 
     const handlePassword = (pass) => {
       setPassword(pass);
     } 
 
+    const handleLogin = (user) => {
+      setUser(user);
+      console.log("app user", user)
+    };
+  
+  
+    const handleLogout = () => {
+      setUser(null);
+    };
+  
     
 
     const showClientStatus =  (clientState) => {
@@ -72,7 +85,7 @@ export const ClientProvider = ({children}) => {
        const editClient = clients.filter(client => client.id === editId);
       
        await setClientEdit({item: editClient, edit:true});
-      
+
     }
 
   
@@ -159,6 +172,7 @@ const handleStatus = async (clientId, selectedState) => {
         clientEdit: clientEdit,
         username: username,
         password: password,
+        user: user,
         handleStatus: handleStatus,
         deleteClient: deleteClient,
         filterClients: filterClients,
@@ -168,7 +182,9 @@ const handleStatus = async (clientId, selectedState) => {
         showDetails: showDetails,
         showClientStatus: showClientStatus,
         handleUserName: handleUserName,
-        handlePassword: handlePassword
+        handlePassword: handlePassword,
+        handleLogin: handleLogin,
+        handleLogout: handleLogout,
     }}>
         {children}
     </ClientContext.Provider> 

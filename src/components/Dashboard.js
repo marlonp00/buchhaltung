@@ -1,11 +1,19 @@
 import { Navigate } from "react-router-dom";
-import React, { useEffect } from "react";
-import Clients from './Clients'
+import { useEffect, useContext } from "react";
+import Clients from './Clients';
+import ClientContext from "../context/ClientContext";
 
-function Dashboard({handleLogout, user}) {
-useEffect(() => {
 
-}, []);
+function Dashboard() {
+
+  const { user, handleLogout } = useContext(ClientContext);
+
+  useEffect(() => {
+    console.log("Rerender Dashboard", user);
+
+
+  }, [user]);
+
   
   return (
    <>

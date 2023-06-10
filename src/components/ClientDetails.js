@@ -17,6 +17,7 @@ function ClientDetails() {
 
 
 
+
   useEffect(() => {
     setClient(clientEdit);
 
@@ -25,7 +26,7 @@ function ClientDetails() {
 
     console.log("Client", clientEdit);
 
-  }, [client, selectedState, changedStatus]);
+  }, [changedStatus]);
 
   const handleChangeStatus = () => {
     console.log(selectedState)
