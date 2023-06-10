@@ -24,12 +24,10 @@ function ClientDetails() {
   
     setChangedStatus(false);
 
-    console.log("Client", clientEdit);
 
   }, [changedStatus]);
 
   const handleChangeStatus = () => {
-    console.log(selectedState)
    
     if(selectedState !== client.item[0].state) {
       client.item[0].state = selectedState;

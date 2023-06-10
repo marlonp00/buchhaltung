@@ -9,7 +9,6 @@ function Dashboard() {
   const { user, handleLogout } = useContext(ClientContext);
 
   useEffect(() => {
-    console.log("Rerender Dashboard", user);
 
 
   }, [user]);

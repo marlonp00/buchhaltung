@@ -23,10 +23,8 @@ export const ClientProvider = ({children}) => {
     useEffect(() => {
       if(clients === null) {
         getClients();
-        console.log("From Context");
       }
       if(clientEdit.edit === true) {
-        console.log("Trigger navigate")
       }
 
     }, [selectedDate, selectedStatus, clientEdit]);
@@ -41,7 +39,6 @@ export const ClientProvider = ({children}) => {
       }
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data); // log the response data to the console
       setClients(data);
     };
 
@@ -54,7 +51,6 @@ export const ClientProvider = ({children}) => {
 
     const handleLogin = (user) => {
       setUser(user);
-      console.log("app user", user)
     };
   
   

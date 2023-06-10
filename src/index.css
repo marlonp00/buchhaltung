@@ -97,6 +97,7 @@ ul li {
   margin: 1em 0;
 }
 
+
 .btn {
   margin: 1em;
   height: 30px;
@@ -179,6 +180,10 @@ header h2 {
 
 .clients-infobox {
   margin: 1em 0;
+}
+
+.no-clients {
+  margin: 2em 0 0;
 }
 
 .date-filter {

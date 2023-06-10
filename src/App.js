@@ -13,7 +13,6 @@ function App() {
   const { user } = useContext(ClientContext);
 
   useEffect(() => {
-    console.log("App rerender");
   }, []); 
 
  

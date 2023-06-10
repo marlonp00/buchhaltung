@@ -12,10 +12,9 @@ function Clients() {
 
   const { clients, username, showDetails, deleteClient, showClientStatus } = useContext(ClientContext);
 
-  const [items, setItems] = useState(null);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    console.log("Rerender Clients");
     if (sortByDate) {
       setItems(sortClientsByDate(clients));
     } else {
@@ -97,7 +96,7 @@ function Clients() {
       <div className="row">
         <div className="col-12">
           <ul>
-            {items ? items.filter(filterClients).map((client) => (
+            { items !== undefined && items.length !== 0 && items != null ? items.filter(filterClients).map((client) => (
               <li className={
               client.state === "SEND"
               ? "table table-finished"
@@ -120,7 +119,14 @@ function Clients() {
 
                {username === "Sonja" && <button className="btn btn-danger" onClick={() => { if(window.confirm('Bestellung löschen?')){ deleteClient(client.id)}} }>Löschen</button>} 
               </li>
-            )) : <li>Keine Bestellungen</li>}
+            )) : 
+            <li>
+              <div className="no-clients">
+             <h2>Keine Bestellungen sind eingetroffen</h2> 
+
+              </div>
+              </li>
+            }
           </ul>
         </div>
       </div>
