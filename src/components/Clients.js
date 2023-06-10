@@ -120,7 +120,7 @@ function Clients() {
 
                {username === "Sonja" && <button className="btn btn-danger" onClick={() => { if(window.confirm('Bestellung löschen?')){ deleteClient(client.id)}} }>Löschen</button>} 
               </li>
-            )) : <p>Keine Bestellungen</p>}
+            )) : <li>Keine Bestellungen</li>}
           </ul>
         </div>
       </div>
