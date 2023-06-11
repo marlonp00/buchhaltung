@@ -28,6 +28,14 @@ ul li {
   list-style-type: none;
 }
 
+select {
+  background: #fff;
+  margin: 1em 0 0;
+  height: 2em;
+  
+  width: 100%;
+}
+
 .wrapper {
   margin: auto;
   width: 50%;
@@ -76,6 +84,7 @@ ul li {
 
 .card input { 
   width: 100%;
+  background: #fff;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -95,6 +104,11 @@ ul li {
 .card button { 
   width: 100%;
   margin: 1em 0;
+}
+
+.state-title h4 {
+  text-align: center;
+
 }
 
 

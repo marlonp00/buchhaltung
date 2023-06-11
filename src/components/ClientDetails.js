@@ -62,13 +62,13 @@ function ClientDetails() {
               <strong>Telefon:</strong> {client.item[0].phone}
             </p>
             <p className="card-text">
-              <strong>Adresse:</strong> {client.item[0].address}
+              <strong>Adresse:</strong> {client.item[0].address + ', ' + client.item[0].plz}
             </p>
             <p className="card-text">
               <strong>Bestellung:</strong> {client.item[0].orders}
             </p>
             <div className="card-status">
-              <label htmlFor="state">Wähle einen Status:</label>
+              <label htmlFor="state" className="state-title"><h4>Wähle einen Status</h4></label>
               <select id="state" value={selectedState} onChange={(e) => setSelectedState(String(e.target.value))}>
                 <option value="IN_PROGRESS">Bestellt</option>
                 <option value="BILL_SEND">Rechnung verschickt</option>
