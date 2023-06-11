@@ -43,8 +43,9 @@ const Login = ({ error }) => {
             <input
               type="text"
               value={username}
+              autoComplete="username"
               onChange={(e) => handleUserName(e.target.value)}
-              placeholder="UserName"
+              placeholder="User Name"
             />
             </label>
             
@@ -54,8 +55,9 @@ const Login = ({ error }) => {
               <input
                 type="password"
                 value={password}
+                autoComplete="current-password"
                 onChange={(e) => handlePassword(e.target.value)}
-                placeholder="passwort"
+                placeholder="Passwort"
               />
             </label>
             <br />
