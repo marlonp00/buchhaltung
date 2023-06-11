@@ -64,6 +64,9 @@ function ClientDetails() {
             <p className="card-text">
               <strong>Adresse:</strong> {client.item[0].address}
             </p>
+            <p className="card-text">
+              <strong>Bestellung:</strong> {client.item[0].orders}
+            </p>
             <div className="card-status">
               <label htmlFor="state">Wähle einen Status:</label>
               <select id="state" value={selectedState} onChange={(e) => setSelectedState(String(e.target.value))}>
