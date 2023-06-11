@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import {login} from '../auth';
 import ClientContext from "../context/ClientContext";
@@ -10,25 +10,34 @@ const Login = ({ error }) => {
 
   const { username, password, handleLogin, handleUserName, handlePassword} = useContext(ClientContext);
   const navigate = useNavigate();
+  const [disabledBtn, setDisabledBtn] = useState(false);
 
 
   
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    setDisabledBtn(true);
+    
+ 
     try {
       const isSuccess = await login(username, password);
       if (isSuccess) {
         await handleLogin({ username, password });
         toast.success("erfolgreich eingeloggt");
         navigate("/dashboard")
+        setDisabledBtn(false);
+
 
       } else {
+        setDisabledBtn(false);
         throw new Error("Incorrect username or password");
       }
     } catch (error) {
       toast.error("Falscher Benutzername oder Passwort");
       console.log(error);
-    }
+      setDisabledBtn(false);
+    } 
   };
 
   return (
@@ -62,7 +71,7 @@ const Login = ({ error }) => {
             </label>
             <br />
             {error && <div style={{ color: "red" }}>{error}</div>}
-            <button className="btn" type="submit">Login</button>
+            <button className="btn btn-login" disabled={disabledBtn} type="submit">Login</button>
           </form>
         </div>
       </div>
