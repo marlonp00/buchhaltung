@@ -21,7 +21,7 @@ function Dashboard() {
              <header>
              <h2>Willkommen, {user.username}!</h2>
              <div className="controls">
-               <button className="btn" onClick={() => handleLogout(user === null)}>
+               <button className="btn btn-logout" onClick={() => handleLogout(user === null)}>
                  Logout
                </button>
              </div>

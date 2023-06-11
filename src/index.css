@@ -64,7 +64,7 @@ ul li {
 .card-login-body {
   display: block;
   /* margin: 2em; */
-  width: 25em;
+  width: 100%;
   text-align: center;
   transition: 0.25s all ease-in-out;
 }
@@ -256,6 +256,25 @@ header h2 {
     width: 100%;
   
 }
+.wrapper {
+  width: 100%;
+}
+
+.date-filter {
+  width: 100%;
+}
+
+.status-filter {
+  width: 100%;
+}
+
+header h2 {
+  font-size: 1.2em;
+}
+.btn-logout {
+  margin: 1em;
+}
+
 }
 
 
