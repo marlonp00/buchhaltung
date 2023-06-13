@@ -96,7 +96,7 @@ function Clients() {
       <div className="row">
         <div className="col-12">
           <ul>
-            { items !== undefined && items.length !== 0 && items != null ? items.filter(filterClients).map((client) => (
+            { items !== undefined && items.length !== 0 && items !== null ? items?.filter(filterClients).map((client) => (
               <li className={
               client.state === "SEND"
               ? "table table-finished"

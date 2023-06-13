@@ -6,7 +6,7 @@ const ClientContext = createContext();
 export const ClientProvider = ({children}) => {
 
 
-    const [clients, setClients] = useState(null);
+    const [clients, setClients] = useState([]);
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedStatus, setSelectedStatus] = useState(null);
     const [username, setUsername] = useState("");
@@ -39,7 +39,7 @@ export const ClientProvider = ({children}) => {
       }
       const response = await fetch(url);
       const data = await response.json();
-      setClients(data);
+      return await setClients(data);
     };
 
     const handleUserName = (username) => {
