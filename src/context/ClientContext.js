@@ -6,7 +6,7 @@ const ClientContext = createContext();
 export const ClientProvider = ({children}) => {
 
 
-    const [clients, setClients] = useState([]);
+    const [clients, setClients] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedStatus, setSelectedStatus] = useState(null);
     const [username, setUsername] = useState("");
@@ -22,6 +22,7 @@ export const ClientProvider = ({children}) => {
 
     useEffect(() => {
       if(clients === null) {
+        setClients([]);
         getClients();
       }
       if(clientEdit.edit === true) {
