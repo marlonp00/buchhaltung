@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import {login} from '../auth';
 import ClientContext from "../context/ClientContext";
 import { useNavigate } from "react-router-dom";
+import Spinner from "./Spinner";
 
 
 
@@ -71,8 +72,9 @@ const Login = ({ error }) => {
             </label>
             <br />
             {error && <div style={{ color: "red" }}>{error}</div>}
-            <button className="btn btn-login" disabled={disabledBtn} type="submit">Login</button>
+            <button className="btn btn-login" disabled={disabledBtn} type="submit">Login </button>
           </form>
+          { disabledBtn && <Spinner /> }
         </div>
       </div>
     </div>
